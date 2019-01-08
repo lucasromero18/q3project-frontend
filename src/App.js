@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Navbar from './components/Navbar.js'
+import Header from './components/Header.js'
 import CategoryList from './components/CategoryList.js'
 import ProductList from './components/ProductList.js'
 import Cart from './components/Cart.js'
@@ -13,7 +13,7 @@ class App extends Component {
   render() {
     return (
     <>
-    <Navbar />
+    <Header />
     <CategoryList />
     <ProductList />
     <Cart />
