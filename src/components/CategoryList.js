@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 const jumbo = {
     styles: {
-        marginLeft: "21%",
+        marginLeft: "22%",
         color: "darkred"
     }
 }
@@ -18,7 +18,9 @@ const header = {
     styles: {
         color: "darkred",
         marginLeft: "5%",
-        display: "flex"
+        display: "flex",
+        borderBottom: "2px solid darkred",
+        width: "25%"
     }
 }
 
@@ -50,6 +52,12 @@ const cardImg = {
 const view = {
     styles: {
         color: "white"
+    }
+}
+
+const cardTitle = {
+    styles: {
+        color: "darkred"
     }
 }
 
@@ -111,9 +119,9 @@ class CategoryList extends Component {
                                     {this.props.categories.map(category =>
                                         <Col sm="3">
                                             <Card style={cards.styles} key={category.id} value={category.id}>
-                                                <CardTitle>{category.name}</CardTitle>
+                                                <CardTitle style={cardTitle.styles}>{category.name}</CardTitle>
                                                 <img style={cardImg.styles} width="100%" src={category.img} alt="Card image cap" />
-                                                <Button style={button.styles} color="danger"><Link style={view.styles} to={'/category/' + category.id} >View</Link></Button>
+                                                <Button style={button.styles} color="danger"><Link style={view.styles} to={'/category/' + category.id}>View</Link></Button>
                                             </Card>
                                         </Col>
                                     )}

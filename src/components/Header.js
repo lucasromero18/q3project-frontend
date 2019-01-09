@@ -6,7 +6,9 @@ import {
     NavbarBrand,
     Nav,
     NavItem,
-    NavLink } from 'reactstrap';
+    NavLink,
+ } from 'reactstrap';
+ import { Link } from "react-router-dom";
    
 
     const header =  {
@@ -39,10 +41,10 @@ class Header extends Component {
                     <NavbarBrand style={fit.styles} href="/">F.I.T.</NavbarBrand>
                         <Nav className="ml-auto" navbar>
                             <NavItem>
-                                <NavLink style={links.styles} href="/components/">Fitness</NavLink>
+                                <NavLink style={links.styles}>Fitness</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink to='/cart' style={links.styles}>Your Cart</NavLink>
+                                <NavLink tag={Link} to='/cart' style={links.styles}>Your Cart</NavLink>
                             </NavItem>
                         </Nav>
                     </Navbar>

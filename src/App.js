@@ -2,19 +2,20 @@ import React, { Component } from 'react';
 import Header from './components/Header.js'
 import CategoryList from './components/CategoryList.js'
 import ProductList from './components/ProductList.js'
+import Product from './components/IndividualProduct.js'
 import Cart from './components/Cart.js'
 import Footer from './components/Footer.js'
-import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { Button } from 'reactstrap';
 
-class App extends Component {
 
+class App extends Component {
   state = {
     categories: [],
     products: [],
-    cart: []
+    cart: [],
+    filteredSearch: ' '
 }
 
 
@@ -35,6 +36,7 @@ async componentDidMount()  {
           <Switch>
           <Route path="/" exact render={() => <CategoryList categories={this.state.categories}  />} />
           <Route path="/category/:category_id" render={(props) => <ProductList categories={this.state.categories} products={this.state.products}{...props} />} />
+          <Route path="/product/:id" render={(props) => <Product products={this.state.products} {...props}/>} />
           <Route path="/cart" render={() => <Cart />} />
           </Switch>
 
