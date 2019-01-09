@@ -7,6 +7,7 @@ import {
     Nav,
     NavItem,
     NavLink } from 'reactstrap';
+   
 
     const header =  {
         styles: {
@@ -41,7 +42,7 @@ class Header extends Component {
                                 <NavLink style={links.styles} href="/components/">Fitness</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink style={links.styles} href="https://github.com/reactstrap/reactstrap">Your Cart</NavLink>
+                                <NavLink to='/cart' style={links.styles}>Your Cart</NavLink>
                             </NavItem>
                         </Nav>
                     </Navbar>
