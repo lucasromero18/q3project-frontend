@@ -3,7 +3,7 @@ import { Card, CardFooter } from 'reactstrap';
 
 const footer =  {
     styles: {
-        backgroundColor: "red",
+        backgroundColor: "lightgrey",
         color: "white"
     }
 }

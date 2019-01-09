@@ -11,20 +11,20 @@ import {
 
     const header =  {
         styles: {
-            backgroundColor: "red"
+            backgroundColor: "lightgrey"
         }
     }
 
     const fit = {
         styles: {
-            color: "white",
+            color: "darkred",
             fontSize: "40px"
         }
     }
 
     const links = {
         styles: {
-            color: "white"
+            color: "darkred"
         }
     }
 
@@ -36,7 +36,7 @@ class Header extends Component {
             <>
             <div>
                 <Navbar style={header.styles} light expand="md">
-                    <NavbarBrand style={fit.styles} href="/">F.I.T</NavbarBrand>
+                    <NavbarBrand style={fit.styles} href="/">F.I.T.</NavbarBrand>
                         <Nav className="ml-auto" navbar>
                             <NavItem>
                                 <NavLink style={links.styles} href="/components/">Fitness</NavLink>
