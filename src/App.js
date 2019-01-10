@@ -16,17 +16,54 @@ class App extends Component {
     products: [],
     cart: [],
     filteredSearch: ' '
-}
+  }
 
 
-async componentDidMount()  {
-  const categoriesResponse = await fetch('http://localhost:8000/categories')
-  const categories = await categoriesResponse.json()
-  const productsResponse = await fetch('http://localhost:8000/products')
-  const products = await productsResponse.json()
-  this.setState({ categories, products})
-}
- 
+  async componentDidMount() {
+    const categoriesResponse = await fetch('http://localhost:8000/categories')
+    const categories = await categoriesResponse.json()
+    const productsResponse = await fetch('http://localhost:8000/products')
+    const products = await productsResponse.json()
+    this.setState({ categories, products })
+  }
+
+  filteredCategorySearch = (e) => {
+    this.setState({
+      categories: e.target.value
+    })
+  }
+
+
+  addProductToCart = (id) => {
+    const individualProduct = this.state.products.filter(product => product.id === id)
+    console.log(individualProduct)
+    this.setState(prevState => {
+      let cart = this.state.cart
+      const products = this.state.products
+      for (let i = 0; i < products.length; i++) {
+        if (products[i].id === id) {
+          cart.push(products[i])
+        }
+      }
+      return { cart }
+    })
+  }
+
+  removeProductFromCart = (id) => {
+    const removeProduct = this.state.cart.filter(product => product.id === id)
+    console.log(removeProduct)
+    this.setState(prevState => {
+      let newArr = []
+      let cart = this.state.cart
+      for (let i = 0; i < cart.length; i++) {
+        if (cart[i].id !== id) {
+          newArr.push(cart[i])
+        }
+      }
+      return { cart: newArr }
+    })
+  }
+
   render() {
     return (
       <BrowserRouter>
@@ -34,10 +71,10 @@ async componentDidMount()  {
           <Header />
 
           <Switch>
-          <Route path="/" exact render={() => <CategoryList categories={this.state.categories}  />} />
-          <Route path="/category/:category_id" render={(props) => <ProductList categories={this.state.categories} products={this.state.products}{...props} />} />
-          <Route path="/product/:id" render={(props) => <Product products={this.state.products} {...props}/>} />
-          <Route path="/cart" render={() => <Cart />} />
+            <Route path="/" exact render={() => <CategoryList filteredCategoryList={this.filteredCategorySearch} categories={this.state.categories} />} />
+            <Route path="/category/:category_id" render={(props) => <ProductList categories={this.state.categories} products={this.state.products}{...props} />} />
+            <Route path="/product/:id" render={(props) => <Product addProductToCart={this.addProductToCart} products={this.state.products} {...props} />} />
+            <Route path="/cart" render={(props) => <Cart CartItems={this.state.cart} removeProductFromCart={this.removeProductFromCart}{...props} />} />
           </Switch>
 
           <Footer />

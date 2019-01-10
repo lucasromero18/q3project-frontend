@@ -107,9 +107,8 @@ class CategoryList extends Component {
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="inputCity">Narrow your search here</label>
-                                <input type="text" class="form-control" id="inputCity"></input>
+                                <input onChange={this.props.filteredCategoryList} type="text" class="form-control" id="inputCity"></input>
                             </div>
-                            <Button style={searchButton.styles} color="danger">search</Button>
                         </div>
                     </form>
                 </div>
