@@ -15,7 +15,7 @@ class App extends Component {
     categories: [],
     products: [],
     cart: [],
-    filteredSearch: ' '
+    filteredSearch: ''
   }
 
 
@@ -29,7 +29,7 @@ class App extends Component {
 
   filteredCategorySearch = (e) => {
     this.setState({
-      categories: e.target.value
+      filteredSearch: e.target.value
     })
   }
 
@@ -68,10 +68,10 @@ class App extends Component {
     return (
       <BrowserRouter>
         <>
-          <Header />
+          <Header productCount={this.state.cart.length} />
 
           <Switch>
-            <Route path="/" exact render={() => <CategoryList filteredCategoryList={this.filteredCategorySearch} categories={this.state.categories} />} />
+            <Route path="/" exact render={() => <CategoryList filteredSearch={this.state.filteredSearch} filteredCategoryList={this.filteredCategorySearch} categories={this.state.categories.filter(category => category.name.includes(this.state.filteredSearch))} />} />
             <Route path="/category/:category_id" render={(props) => <ProductList categories={this.state.categories} products={this.state.products}{...props} />} />
             <Route path="/product/:id" render={(props) => <Product addProductToCart={this.addProductToCart} products={this.state.products} {...props} />} />
             <Route path="/cart" render={(props) => <Cart CartItems={this.state.cart} removeProductFromCart={this.removeProductFromCart}{...props} />} />

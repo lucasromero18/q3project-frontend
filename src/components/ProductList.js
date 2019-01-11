@@ -9,7 +9,8 @@ const header = {
     styles: {
         color: "darkred",
         paddingLeft: "41%",
-        paddingTop: "2%"
+        paddingTop: "2%",
+        fontFamily: 'Titillium Web, sans-serif'
     }
 }
 
@@ -25,7 +26,8 @@ const cardContainer = {
 const productTitle = {
     styles: {
         textAlign: "center",
-        color: "darkred"
+        color: "darkred",
+        fontFamily: 'Titillium Web, sans-serif'
     }
 }
 

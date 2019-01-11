@@ -9,7 +9,8 @@ import { Link } from "react-router-dom";
 const jumbo = {
     styles: {
         marginLeft: "22%",
-        color: "darkred"
+        color: "darkred",
+        
     }
 }
 
@@ -20,7 +21,8 @@ const header = {
         marginLeft: "5%",
         display: "flex",
         borderBottom: "2px solid darkred",
-        width: "25%"
+        width: "25%",
+        fontFamily: 'Fjalla One , sans-serif'
     }
 }
 
@@ -57,7 +59,9 @@ const view = {
 
 const cardTitle = {
     styles: {
-        color: "darkred"
+        color: "darkred",
+        fontFamily: 'Fjalla One, sans-serif',
+        fontSize: "21px"
     }
 }
 
@@ -65,6 +69,19 @@ const cardTitle = {
 const button = {
     styles: {
         marginTop: "20px"
+    }
+}
+
+const narrow = {
+    styles: {
+        marginLeft: "30%",
+        display: "flex"
+    }
+}
+
+const input = {
+    styles: {
+        marginLeft: "30%"
     }
 }
 
@@ -106,8 +123,8 @@ class CategoryList extends Component {
                     <form>
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="inputCity">Narrow your search here</label>
-                                <input onChange={this.props.filteredCategoryList} type="text" class="form-control" id="inputCity"></input>
+                                <label style={narrow.styles} for="inputCity">Search here</label>
+                                <input style={input.styles} onChange={(e) => this.props.filteredCategoryList(e)} type="text" class="form-control" id="inputCity"></input>
                             </div>
                         </div>
                     </form>

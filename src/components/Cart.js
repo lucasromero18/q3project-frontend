@@ -15,7 +15,8 @@ const card = {
 const yourItem = {
     styles: {
         fontSize: "30px",
-        color: "darkred"
+        color: "darkred",
+        fontFamily: 'Fjalla One , sans-serif'
     }
 }
 

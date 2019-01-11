@@ -11,7 +11,8 @@ const itemContainer = {
 const productName = {
     styles: {
         fontSize: "20px",
-        margin: "2%"
+        margin: "2%",
+        fontFamily: 'Titillium Web, sans-serif'
     }
 }
 
